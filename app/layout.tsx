@@ -4,6 +4,7 @@ import "./globals.css";
 import { cn } from "@/lib/utils";
 import { ClerkProvider } from "@clerk/nextjs";
 import { auth } from "@clerk/nextjs/server";
+import { ThemeProvider } from "@/providers/theme-provider";
 
 const jetbrainsMono = JetBrains_Mono({
   subsets: ["latin"],
@@ -37,9 +38,17 @@ export default function RootLayout({ children }: LayoutProps<"/">) {
         "font-mono",
         jetbrainsMono.variable,
       )}
+      suppressHydrationWarning
     >
       <body className="min-h-full flex flex-col bg-gray-900">
-        <ClerkProvider>{children}</ClerkProvider>
+        <ThemeProvider
+          attribute="class"
+          defaultTheme="system"
+          enableSystem
+          disableTransitionOnChange
+        >
+          <ClerkProvider>{children}</ClerkProvider>
+        </ThemeProvider>
       </body>
     </html>
   );

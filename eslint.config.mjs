@@ -7,7 +7,7 @@ export default [
       "@clerk/next/require-auth-protection": [
         "error",
         {
-          protected: ["src/app/profile/**", "src/app/**"],
+          protected: ["**"],
           public: ["src/app/sign-in/**", "src/app/sign-up/**"],
           resources: {
             routeHandlers: true,
