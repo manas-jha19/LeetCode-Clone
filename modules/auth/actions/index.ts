@@ -61,3 +61,16 @@ export const currentRole = async () => {
     console.log(error);
   }
 };
+
+export const getCurrentUserData = async () => {
+  try {
+    const user = await currentUser();
+    if (!user) {
+      return { success: false, error: "No Authorized user found" };
+    }
+    const data = await prisma.user.findUnique({
+      where: { clerkId: user.id },
+    });
+    return data;
+  } catch (error) {}
+};

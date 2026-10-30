@@ -44,7 +44,7 @@ export const Navbar = ({ userRole }: any) => {
             <ModeToggle />
             <Show when={"signed-in"}>
               {userRole && userRole === UserRole.ADMIN && (
-                <Link href={"create-problem"}>
+                <Link href={"/create-problem"}>
                   <Button variant={"outline"} size={"default"}>
                     Create Problem
                   </Button>

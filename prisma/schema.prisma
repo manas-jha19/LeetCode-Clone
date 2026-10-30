@@ -47,7 +47,7 @@ model Problem {
   tags String[]
   example Json
   hints String?
-  editorial String
+  editorial String?
   constraints String
 
   codeSnippets Json
